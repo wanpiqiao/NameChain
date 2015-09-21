@@ -1,7 +1,7 @@
 import static org.junit.Assert.*;
 
+import org.hamcrest.Matcher;
 import org.junit.Test;
-
 import org.junit.After;
 import org.junit.Before;
 
@@ -67,7 +67,51 @@ public class XSNameChainTest {
 	
 	@Test
 	public void testNameChain1(){
-		String[] t = {"Elton John","Lebron James","James Faulkner","James Elton","John Lennon"};
-		assertEquals(_nc.getNameChain(t),4);
+		assertEquals(_nc.maxPathLength,0);
+	}
+	
+	
+	@SuppressWarnings("static-access")
+	
+	public void run() {
+		String[] test = {"Elton John","Lebron James","James Faulkner","James Elton","John Lennon"};
+		_nc.getNameChain(test);
+		assertEquals(_nc.maxPathLength,4);
+	}
+	
+	public void run1() {
+		String[] test = {"Elton John","Lebron James","James Faulkner","James Elton","John Lennon"};
+		_nc.getNameChain(test);
+		assertEquals(_nc.maxPathLength,4);
+	}
+	
+	public void run2() {
+		String[] test = {"Elton John","James Elton","John Lennon"};
+		_nc.getNameChain(test);
+		assertEquals(_nc.maxPathLength,3);
+	}
+	
+	public void run3() {
+		String[] test = {"Elton John","Lebron James","James Faulkner","John Lennon"};
+		_nc.getNameChain(test);
+		assertEquals(_nc.maxPathLength,2);
+	}
+	
+	public void run4() {
+		String[] test = {"Lebron James","John Lennon"};
+		_nc.getNameChain(test);
+		assertEquals(_nc.maxPathLength,1);
+	}
+	
+	public void run5() {
+		String[] test = {"Elton John"};
+		_nc.getNameChain(test);
+		assertEquals(_nc.maxPathLength,1);
+	}
+	public void run6() {
+		String[] test = {""};
+		_nc.getNameChain(test);
+		assertEquals(_nc.maxPathLength,0);
 	}
 }
+

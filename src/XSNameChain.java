@@ -15,16 +15,15 @@ public class XSNameChain {
 	    return str.substring(str.indexOf(" ") + 1, str.length());
 	}
 	
-	public static int getNameChain(String[] names){
+	public static void getNameChain(String[] names){
 		 for (int i = 0; i < names.length; i++) {
 	            String tmp = names[0];
 	            names[0] = names[i];
 	            names[i] = tmp;
-	            recursive(names, 1);
+	            recursive(names, 1);//get into the recursive comparing
 	            names[i] = names[0];
 	            names[0] = tmp;
 	       }
-		return maxPathLength;
 	}
 	static void recursive(String[] part, int offset) {
         if (offset > maxPathLength) {//record longest name chain each time
@@ -37,7 +36,8 @@ public class XSNameChain {
         }
         String lastChar = getLastChar(part[offset - 1]);
         for (int i = offset; i < part.length; i++) {
-            if (getFirstChar(part[i]).equals(lastChar)) {//compare if this element work
+            if (getFirstChar(part[i]).equals(lastChar)) {
+            	//compare if this element can be in the chain
                 String tmp = names[offset];
                 names[offset] = names[i];
                 names[i] = tmp;
@@ -50,16 +50,16 @@ public class XSNameChain {
 	
  
     public static void main(String[] args) {
-    	String FilePath = "src/test.txt";
-//    	String FilePath = "src/CeleName.txt";
+//    	String FilePath = "src/test.txt";
+    	String FilePath = "src/CeleName.txt";
 		try {
 			names = FileUtils.readFile(FilePath).split(";");
 		} catch (IOException e) {
 			// Auto-generated catch block
 			e.printStackTrace();
 		} 
-    	int length = getNameChain(names);
-    	System.out.println("maximum path length        : " + length);
+    	 getNameChain(names);
+    	System.out.println("maximum path length        : " + maxPathLength);
 	    System.out.println("example path of that length: " + maxPathExample);
     }
 }
