@@ -42,10 +42,12 @@ The program can get the correct result of given example:
 
 <code>
     maximum path length        : 4
+
     example path of that length: Lebron James Elton John Lennon</code>
 
 I used the subset of UCI Machine Learning Repository Movie Dataset (https://archive.ics.uci.edu/ml/datasets/Movie). And cleaned them with R. The input file is “CeleName.txt”, and the screen shot of output is as follow:
 
 <code>
     maximum path length        : 10
+    
     example path of that length: Crane Randolph Anders Glenn Scott Newman Barry Patrick Lee Bill Tony</code>
