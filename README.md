@@ -1,6 +1,8 @@
 # NameChain
 Xiaoxi Dong-University of Pittsburgh-Mini Project
+
 This question can be simplified as finding the longest path in a directed graph. Even though we have had may classic solutions to get the shortest path in a graph, most of the algorithms cannot be applied in finding the longest path, except Floyd Algorithm and Dynamic Programming. Since we need to print out the path in this question, Dynamic Programming is better than Floyd Algorithm.
+
 This is a simple java project, and can be compiled by any Java IDE.
 
 ###Big-O analysis: 
